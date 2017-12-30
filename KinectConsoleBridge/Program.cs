@@ -35,34 +35,28 @@ namespace KinectConsoleBridge
                 }
             }
 
-
-
-
-
-            Console.Out.WriteLine("Args: " + args.Length);
-
             IPAddress ip = null;
-            do
+            int port = DefaultPort;
+            string[] chunks = targetStr.Split(':');
+            try
             {
-                Console.Out.Write("Enter target IP address:port (default = 127.0.0.1:11011): ");
-                string ipStr = Console.In.ReadLine().Trim();
-                if (ipStr.Length == 0)
+                if (chunks.Length == 1)
                 {
-                    ip = IPAddress.Parse("127.0.0.1");
+                    ip = IPAddress.Parse(chunks[0]);
                 }
-                else
+                else if (chunks.Length == 2)
                 {
-                    try
-                    {
-                        ip = IPAddress.Parse(ipStr);
-                    } catch (FormatException)
-                    {
-                        Console.Out.WriteLine("Invalid IP address");
-                    }
+                    ip = IPAddress.Parse(chunks[0]);
+                    port = Int32.Parse(chunks[1]);
                 }
-            } while (ip == null);
-
-            new Program(ip).Go();
+            }
+            catch (FormatException)
+            {
+                Console.Error.Write("Failed to parse IP address/port");
+                return;
+            }
+            
+            new Program(ip, port).Go();
         }
 
         Program(IPAddress ip, int port)
