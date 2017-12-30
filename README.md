@@ -1,6 +1,6 @@
 # skelecaster
 
-skelecaster reads skeleton frame data from an attached Kinect, serializes it into UDP packets, and sends them over the network.
+skelecaster reads skeleton frame data from an attached Kinect, serializes it into UDP packets, and sends it over the network.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ Followed by a data block for each tracked body:
 ### Notes
 
   - all data is little endian
-  - joint position components are encoded as a float
+  - joint position components are encoded as floats
   - joint numbers correspond to values of [JointType enumeration](https://msdn.microsoft.com/en-us/library/microsoft.kinect.jointtype.aspx)
   - joint status values correspond to values of [JointTrackingState enumeration](https://msdn.microsoft.com/en-us/library/microsoft.kinect.jointtrackingstate.aspx)
 
