@@ -39,8 +39,8 @@ Followed by a data block for each tracked body:
 
   - all data is little endian
   - joint position components are encoded as floats
-  - joint numbers correspond to values of [JointType enumeration](https://msdn.microsoft.com/en-us/library/microsoft.kinect.jointtype.aspx)
-  - joint status values correspond to values of [JointTrackingState enumeration](https://msdn.microsoft.com/en-us/library/microsoft.kinect.jointtrackingstate.aspx)
+  - joint numbers correspond to values of [JointType enumeration](https://docs.microsoft.com/en-us/previous-versions/windows/kinect/dn758662(v%3dieb.10))
+  - joint status values correspond to values of [TrackingState enumeration](https://docs.microsoft.com/en-us/previous-versions/windows/kinect/dn758896(v%3dieb.10))
 
 ## License
 
